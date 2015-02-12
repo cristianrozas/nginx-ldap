@@ -1,7 +1,7 @@
 # NGINX LDAP
 
 ## Intention
-The intention to create this Dockerfile was to provide an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP support](https://github.com/kvspb/nginx-auth-ldap).
+The intention to create this Dockerfile was to provide an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP support](https://github.com/kvspb/nginx-auth-ldap). That could be used e.g. to proxy a private [Docker registry](https://github.com/docker/docker-registry) and to authenticate the users against an existing LDAP user directory.
 
 ## Basic Usage
 For a basic test simply run:
@@ -22,5 +22,8 @@ To provide your own static HTML site run:
 
 ## LDAP configuration
 
-More information about how to configure NGINX with ldap can be found at the [nginx-auth-ldap module site](https://github.com/kvspb/nginx-auth-ldap).
+Information about how to configure NGINX with ldap can be found at the [nginx-auth-ldap module site](https://github.com/kvspb/nginx-auth-ldap).
 
+## Docker registry proxy configuration
+
+A sample configuration to act as a proxy to a Docker registry can be found at the official [Docker registry github page](https://github.com/docker/docker-registry/blob/master/contrib/nginx/nginx_1-3-9.conf).
