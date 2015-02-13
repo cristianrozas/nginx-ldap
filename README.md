@@ -57,9 +57,7 @@ Create an NGINX Docker container with an nginx.conf file that has LDAP authentic
 
 When you now access the NGINX server via port 80 you will get an authentication dialog. The user name for the test user is *test* and the password is *t3st*.
 
-#### Further information
-
-Information about how to configure NGINX with ldap can be found at the [nginx-auth-ldap module site](https://github.com/kvspb/nginx-auth-ldap).
+Further information about how to configure NGINX with ldap can be found at the [nginx-auth-ldap module site](https://github.com/kvspb/nginx-auth-ldap).
 
 ### Docker registry proxy configuration
 
