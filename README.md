@@ -76,7 +76,7 @@ To run a proxy server to authenticate users against a Docker registry follow the
 
 3. Add valid SSL certificates (known by a CA - no self signed ones!) to a local folder (e.g. /ssl/cert/path) to be mounted as a volume into the proxy server in the next step. They need to be named *docker-registry.crt* and *docker-registry.key*.
 
-4. Create a Docker container for the NGINX proxy.
+4. Create a Docker container for the NGINX proxy. The used sample configuration can be found [in the config/proxy folder](/config/proxy).
 
 
 		docker run --name nginx --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/config/proxy:/etc/nginx:ro -p 80:80 -p 443:443 -p 5000:5000 -d h3nrik/nginx-ldap
