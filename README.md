@@ -49,7 +49,7 @@ To test this NGINX image with authentication against an LDAP server follow these
 		ldapsearch  -v -h <our-ip>:389 -b 'ou=users,dc=example,dc=com' -D 'cn=admin,dc=example,dc=com'  -x -W '(&(objectClass=person)(uid=test))'
 
 
-4. Create an NGINX Docker container with an nginx.conf file which has LDAP authentication enabled. You can find a sample [nginx.conf](/config/nginx.conf) file in the config folder that provides the static default NGINX welcome page.
+4. Create an NGINX Docker container with an nginx.conf file which has LDAP authentication enabled. You can find a sample [nginx.conf](/config/basic/nginx.conf) file in the config folder that provides the static default NGINX welcome page.
 
  
 		docker run --name nginx --link ldap:ldap -d -v `pwd`/config/nginx.conf:/usr/local/nginx/conf/nginx.conf:ro -p 80:80 h3nrik/nginx-ldap
