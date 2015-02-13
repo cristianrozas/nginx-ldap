@@ -31,7 +31,7 @@ To provide your own static HTML site run:
 
 To test this NGINX image with authentication against an LDAP server follow these steps:
 
-1. Start a Docker container with a running LDAP instance. This can be done e.g. using the [nickstenning/slapd](https://registry.hub.docker.com/u/nickstenning/slapd/) image by @nickstenning. The root passwort will be set to '''toor'''.
+1. Start a Docker container with a running LDAP instance. This can be done e.g. using the [nickstenning/slapd](https://registry.hub.docker.com/u/nickstenning/slapd/) image. The root passwort will be set to '''toor'''.
 
 
 		docker run -e LDAP_DOMAIN=example.com -e LDAP_ORGANIZATION="Example Ltd." -e LDAP_ROOTPASS=toor --name ldap -d -p 389:389 nickstenning/slapd
