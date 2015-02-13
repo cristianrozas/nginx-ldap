@@ -5,7 +5,15 @@ MAINTAINER Henrik Sachse <t3x7m3@posteo.de>
 ENV NGINX_VERSION v1.7.10
 
 RUN apt-get update \
-	&& apt-get install -y ca-certificates git gcc make libpcre3-dev zlib1g-dev libldap2-dev libssl-dev
+	&& apt-get install -y \
+		ca-certificates \
+		git \
+		gcc \
+		make \
+		libpcre3-dev \
+		zlib1g-dev \
+		libldap2-dev \
+		libssl-dev
 
 # See http://wiki.nginx.org/InstallOptions
 RUN mkdir /var/log/nginx \
