@@ -2,6 +2,7 @@
 
 The intention to create this Dockerfile was to provide an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP support](https://github.com/kvspb/nginx-auth-ldap). That could be used e.g. to proxy a private [Docker registry](https://github.com/docker/docker-registry) and to authenticate the users against an existing LDAP user directory.
 
+
 ### Basic configuration without authentication
 For a basic test without any authentication simply run:
 
@@ -25,6 +26,7 @@ To provide your own static HTML site run:
 
 
 	docker run --name nginx -v /some/content:/usr/local/nginx/html:ro -d -p 8080:80 h3nrik/nginx-ldap
+
 
 
 ### Configuration with LDAP authentication
