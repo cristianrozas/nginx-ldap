@@ -59,9 +59,28 @@ To test this NGINX image with authentication against an LDAP server follow these
 
 Further information about how to configure NGINX with ldap can be found at the [nginx-auth-ldap module site](https://github.com/kvspb/nginx-auth-ldap).
 
+
 ### Docker registry proxy configuration
 
-A sample configuration to act as a proxy to a Docker registry can be found at the official [Docker registry github page](https://github.com/docker/docker-registry/blob/master/contrib/nginx/nginx_1-3-9.conf).
+To run a proxy server to authenticate users against a Docker registry follow these steps:
+
+1. To prepare a test LDAP server, follow step 1-3 of the previous chapter.
+
+2. Instantiate a Docker registry container:
+
+
+		docker run --name registry -d registry
+
+
+3. Add valid SSL certificates (known by a CA - no self signed ones!) to a local folder (e.g. /ssl/cert/path) to be mounted as a volume into the proxy server in the next step.
+
+4. Create a Docker container for the NGINX proxy.
+
+
+	docker run --name nginx --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/config/proxy:/etc/nginx:ro -p 80:80 -p 443:443 -p 5000:5000 -d h3nrik/nginx-ldap
+
+
+Further information about proxying the Docker registry can be found at the official [Docker registry github page](https://github.com/docker/docker-registry/blob/master/ADVANCED.md).
 
 ### License
 
