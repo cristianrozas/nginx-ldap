@@ -71,7 +71,7 @@ To run a proxy server to authenticate users against a Docker registry follow the
 2. Instantiate a Docker registry container:
 
 
-		docker run --name registry -d registry
+		docker run -d --name registry -v /your/local/registry/path:/registry -e SETTINGS_FLAVOR=local -e STORAGE_PATH=/registry registry
 
 
 3. Add valid SSL certificates (known by a CA - no self signed ones!) to a local folder (e.g. /ssl/cert/path) to be mounted as a volume into the proxy server in the next step.
