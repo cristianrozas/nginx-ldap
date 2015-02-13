@@ -67,10 +67,5 @@ A sample configuration to act as a proxy to a Docker registry can be found at th
 
 This docker image contains binaries for:
 
-#### The NGINX web server
-
-The NGINX license can be found at the [NGINX website](http://nginx.org/LICENSE).
-
-#### The nginx-auth-ldap module
-
-The nginx-auth-ldap module license can be found at [its project page](https://github.com/kvspb/nginx-auth-ldap/blob/master/LICENSE).
+1. The NGINX web server. Its license can be found on the [NGINX website](http://nginx.org/LICENSE).
+2. The nginx-auth-ldap module. Its license can be found on the [nginx-auth-ldap module project site](https://github.com/kvspb/nginx-auth-ldap/blob/master/LICENSE).
