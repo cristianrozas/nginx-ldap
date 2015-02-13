@@ -1,7 +1,4 @@
-# docker run -e LDAP_DOMAIN=example.com -e LDAP_ORGANIZATION="Example Ltd." -e LDAP_ROOTPASS=toor --name ldap -d -p 389:389 nickstenning/slapd
-# ldapadd -v -h 192.168.59.103:389 -c -x -D cn=admin,dc=example,dc=com -W -f sample.ldif 
-# ldapsearch  -v -h 192.168.59.103:389 -b 'ou=users,dc=example,dc=com' -D 'cn=admin,dc=example,dc=com'  -x -W '(&(objectClass=person)(uid=test))'
-# docker run --name nginx-test --link ldap:ldap -v /Users/hs/Documents/git/nginx-ldap/conf/nginx.conf:/usr/local/nginx/conf/nginx.conf:ro -p 80:80 h3nrik/nginx-ldap
+# The root node (dc=example,dc=com) is automatically created by the Docker container instantiation (nickstenning/slapd).
 
 # All the users
 dn: ou=users,dc=example,dc=com
@@ -27,5 +24,5 @@ dn: cn=docker,ou=groups,dc=example,dc=com
 objectclass: groupofnames
 cn: docker
 description: All the docker users
-member: uid=test,ou=people,dc=example,dc=com
+member: uid=test,ou=users,dc=example,dc=com
 
