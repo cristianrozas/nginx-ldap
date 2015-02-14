@@ -36,7 +36,7 @@ Follow these steps to set up an LDAP test container:
 
 3. Then you can verify that the test user exists:
 
-		ldapsearch  -v -h <our-ip>:389 -b 'ou=users,dc=example,dc=com' -D 'cn=admin,dc=example,dc=com'  -x -W '(&(objectClass=person)(uid=test))'
+		ldapsearch  -v -h <your-ip>:389 -b 'ou=users,dc=example,dc=com' -D 'cn=admin,dc=example,dc=com'  -x -W '(&(objectClass=person)(uid=test))'
 
 Now the LDAP container is ready to be used.
         
