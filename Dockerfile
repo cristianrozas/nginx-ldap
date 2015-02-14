@@ -20,8 +20,6 @@ RUN mkdir /var/log/nginx \
 	&& mkdir /etc/nginx \
 	&& cd ~ \
 	&& git clone https://github.com/kvspb/nginx-auth-ldap.git \
-	&& cd nginx-auth-ldap \
-	&& cd .. \
 	&& git clone https://github.com/nginx/nginx.git \
 	&& cd nginx \
 	&& git checkout tags/${NGINX_VERSION} \
@@ -34,7 +32,6 @@ RUN mkdir /var/log/nginx \
 		--pid-path=/var/log/nginx/nginx.pid \ 
 		--error-log-path=/var/log/nginx/error.log \ 
 		--http-log-path=/var/log/nginx/access.log \ 
-	&& make \
 	&& make install \
 	&& cd .. \
 	&& rm -rf nginx-auth-ldap \
