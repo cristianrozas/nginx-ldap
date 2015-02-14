@@ -84,6 +84,44 @@ Then the debug log can be read with the following command:
 
 	docker exec -i -t nginx less /var/log/nginx/error.log
 
+You will then see debug output like:
+
+	...
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Username is "test"
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=0, iteration=0)
+	2015/02/14 17:57:10 [debug] 5#0: *2 event timer add: 3: 10000:1423936640056
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: request_timeout=10000
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=1, iteration=0)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Wants a free connection to "ldapserver"
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Search filter is "(&(objectClass=person)(uid=test))"
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: ldap_search_ext() -> msgid=4
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Waking authentication request "GET / HTTP/1.1"
+	2015/02/14 17:57:10 [debug] 5#0: *2 access phase: 6
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=1, iteration=1)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=2, iteration=1)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: User DN is "uid=test,ou=users,dc=example,dc=com"
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=3, iteration=0)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Comparing user group with "cn=docker,ou=groups,dc=example,dc=com"
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: ldap_compare_ext() -> msgid=5
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Waking authentication request "GET / HTTP/1.1"
+	2015/02/14 17:57:10 [debug] 5#0: *2 access phase: 6
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=3, iteration=1)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=4, iteration=0)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: ldap_sasl_bind() -> msgid=6
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Waking authentication request "GET / HTTP/1.1"
+	2015/02/14 17:57:10 [debug] 5#0: *2 access phase: 6
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=4, iteration=1)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: User bind successful
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=5, iteration=0)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Rebinding to binddn
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: ldap_sasl_bind() -> msgid=7
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Waking authentication request "GET / HTTP/1.1"
+	2015/02/14 17:57:10 [debug] 5#0: *2 access phase: 6
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=5, iteration=1)
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: binddn bind successful
+	2015/02/14 17:57:10 [debug] 5#0: *2 http_auth_ldap: Authentication loop (phase=6, iteration=1)
+    ...
+
 ## Licenses
 
 This docker image contains compiled binaries for:
