@@ -4,6 +4,9 @@
 
 The intention to create this Dockerfile was to provide an [NGINX web server](https://github.com/nginx/nginx) with builtin [LDAP support](https://github.com/kvspb/nginx-auth-ldap) and SSL. That can be used as a reverse proxy to a private [Docker registry](https://github.com/docker/docker-registry) which authenticates the users against an LDAP user directory.
 
+The sources including the configuration sample files can be found at [GitHub](https://github.com/g17/nginx-ldap).
+The docker image can be downloaded from [Docker Hub](https://registry.hub.docker.com/u/h3nrik/nginx-ldap/).
+
 ## Usage
 
 ### Static page without authentication
