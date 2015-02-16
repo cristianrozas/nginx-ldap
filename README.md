@@ -72,6 +72,8 @@ Now as we have a running registry we can configure our NGINX authentication prox
 
 		docker run --name nginx --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/config/proxy:/etc/nginx:ro -p 80:80 -p 443:443 -p 5000:5000 -d h3nrik/nginx-ldap
 
+Theoretically you could also use self-signed certificates. Therefore the Docker daemon need to be started with the *--insecure-registry* command line parameter. But this is not recommended.
+
 Further information about proxying the Docker registry can be found at the official [Docker registry github page](https://github.com/docker/docker-registry/blob/master/ADVANCED.md).
 
 ## Debugging
