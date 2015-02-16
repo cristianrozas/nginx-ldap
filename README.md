@@ -66,7 +66,7 @@ You cannot connect to this instance from outside the Docker host by purpose. Oth
 
 Now as we have a running registry we can configure our NGINX authentication proxy for it.
 
-1. Add a valid SSL certificate to a local folder (e.g. /ssl/cert/path) to be mounted as a volume into the proxy server later. It must be a valid one known by a trusted CA! Two files must to be copied into that folder. The certificate itself *docker-registry.crt* and the private key *docker-registry.key*.
+1. Add a valid SSL certificate to a local folder (e.g. /ssl/cert/path) to be mounted as a volume into the proxy server later. It must be a valid one known by a trusted CA! The certificate file itself must be named *docker-registry.crt* and the private key file *docker-registry.key*.
 
 2. Create a Docker container for the NGINX proxy. The used sample configuration can be found [in the config/proxy folder](/config/proxy).
 
