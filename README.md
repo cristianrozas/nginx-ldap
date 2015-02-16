@@ -46,7 +46,7 @@ The following instructions create an NGINX container that provides a static page
 
 1. Create an NGINX Docker container with an nginx.conf file that has LDAP authentication enabled. You can find a sample [nginx.conf](/config/basic/nginx.conf) file in the config folder that provides the static default NGINX welcome page.
 
-		docker run --name nginx --link ldap:ldap -d -v `pwd`/config/nginx.conf:/etc/nginx.conf:ro -p 80:80 h3nrik/nginx-ldap
+		docker run --name nginx --link ldap:ldap -d -v `pwd`/config/nginx.conf:/etc/nginx/nginx.conf:ro -p 80:80 h3nrik/nginx-ldap
 
 2. When you now access the NGINX server via port 80 you will get an authentication dialog. The user name for the test user is *test* and the password is *t3st*.
 
