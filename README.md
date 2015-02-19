@@ -74,7 +74,7 @@ Now as we have a running registry we can configure our NGINX authentication prox
 
 2. Create a Docker container for the NGINX proxy. The used sample configuration can be found [in the config/proxy folder](config/proxy).
 
-		docker run --name nginx --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/config/proxy:/etc/nginx:ro -p 80:80 -p 443:443 -p 5000:5000 -d h3nrik/nginx-ldap
+		docker run --name nginx --link ldap:ldap --link registry:docker-registry -v /ssl/cert/path:/etc/ssl/docker:ro -v `pwd`/config/proxy:/etc/nginx:ro -p 443:443 -p 5000:5000 -d h3nrik/nginx-ldap
 
 Theoretically you could also use self-signed certificates. Therefore the Docker daemon need to be started with the *--insecure-registry* command line parameter. But this is not recommended.
 
